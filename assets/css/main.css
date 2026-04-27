@@ -262,7 +262,9 @@ em { font-style: italic; }
   margin: 0 auto;
   padding: 32px var(--gutter);
 }
-.section.narrow { max-width: calc(var(--content-narrow) + (var(--gutter) * 2)); }
+.section.narrow h2 {
+  max-width: var(--content-narrow);
+}
 .section h2 {
   font-size: 24px;
   margin: 0 0 14px;
@@ -675,11 +677,11 @@ em { font-style: italic; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  padding: 18px 0;
+  padding: 18px var(--gutter);
   border-top: 0.5px solid var(--border-stronger);
   border-bottom: 0.5px solid var(--border-stronger);
-  margin: 0 var(--gutter);
-  max-width: calc(var(--content-wide) - (var(--gutter) * 2));
+  margin: 0 auto;
+  max-width: var(--content-wide);
 }
 .cs-meta .lbl {
   font-family: var(--font-serif);
