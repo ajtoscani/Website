@@ -66,10 +66,6 @@ eleventyExcludeFromCollections: true
   <div class="solar-system" aria-label="Interactive solar system showing Addison's projects as orbiting planets.">
     <svg viewBox="100 0 460 460" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <defs>
-        <radialGradient id="bg-glow" cx="60%" cy="50%" r="70%">
-          <stop offset="0%" stop-color="#1A2348" stop-opacity="0.6"/>
-          <stop offset="100%" stop-color="#0A0E1F" stop-opacity="0"/>
-        </radialGradient>
         <radialGradient id="sun-grad" cx="40%" cy="40%" r="60%">
           <stop offset="0%" stop-color="#FFE0A8"/>
           <stop offset="60%" stop-color="#FFB347"/>
@@ -88,8 +84,6 @@ eleventyExcludeFromCollections: true
           <stop offset="100%" stop-color="#5C4180"/>
         </radialGradient>
       </defs>
-
-      <rect width="600" height="460" fill="url(#bg-glow)"/>
 
       {# Orbital rings #}
       <circle cx="340" cy="230" r="100" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-dasharray="2,4" opacity="0.18"/>
