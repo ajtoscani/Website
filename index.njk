@@ -1,0 +1,197 @@
+---
+title: Addison
+description: Solo indie game developer making small worlds in Unreal Engine 5. Currently building Cardboard Critters — a cozy garden of paper-crafted creatures.
+eleventyExcludeFromCollections: true
+---
+{% extends "base.njk" %}
+
+{% block main %}
+
+<section class="home-hero">
+  <div>
+    <p class="eyebrow">Indie game developer · Oklahoma</p>
+    <h1>I build <em>small worlds</em> in Unreal Engine 5.</h1>
+    <p>Each project is its own little planet. Pick one and have a look around.</p>
+    <p class="arc-note">Tech lead for seven years. Now full-time on the worlds.</p>
+  </div>
+
+  <div class="solar-system" aria-label="Interactive solar system showing Addison's projects as orbiting planets.">
+    <svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <radialGradient id="bg-glow" cx="60%" cy="50%" r="70%">
+          <stop offset="0%" stop-color="#1A2348" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#0A0E1F" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="sun-grad" cx="40%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#FFE0A8"/>
+          <stop offset="60%" stop-color="#FFB347"/>
+          <stop offset="100%" stop-color="#E89530"/>
+        </radialGradient>
+        <radialGradient id="sun-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFB347" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#FFB347" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="cbc-grad" cx="35%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#A8D89A"/>
+          <stop offset="100%" stop-color="#5A8A4F"/>
+        </radialGradient>
+        <radialGradient id="gg-grad" cx="35%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#9B7DB8"/>
+          <stop offset="100%" stop-color="#5C4180"/>
+        </radialGradient>
+      </defs>
+
+      <rect width="600" height="460" fill="url(#bg-glow)"/>
+
+      {# Background stars #}
+      <g fill="#FFFFFF" opacity="0.7">
+        <circle cx="80" cy="60" r="0.8" class="twinkle-1"/>
+        <circle cx="180" cy="40" r="1.1" class="twinkle-2"/>
+        <circle cx="260" cy="80" r="0.7"/>
+        <circle cx="380" cy="30" r="0.9" class="twinkle-3"/>
+        <circle cx="480" cy="70" r="1.2" class="twinkle-1"/>
+        <circle cx="540" cy="130" r="0.7" class="twinkle-2"/>
+        <circle cx="60" cy="180" r="0.9"/>
+        <circle cx="20" cy="280" r="1.1" class="twinkle-3"/>
+        <circle cx="120" cy="380" r="0.8" class="twinkle-1"/>
+        <circle cx="280" cy="410" r="1" class="twinkle-2"/>
+        <circle cx="440" cy="390" r="0.7"/>
+        <circle cx="560" cy="290" r="1.1" class="twinkle-3"/>
+        <circle cx="510" cy="220" r="0.6"/>
+        <circle cx="40" cy="100" r="0.6"/>
+        <circle cx="220" cy="320" r="0.7" class="twinkle-2"/>
+        <circle cx="500" cy="420" r="0.6" class="twinkle-1"/>
+        <circle cx="160" cy="280" r="0.5"/>
+      </g>
+
+      {# Orbital rings #}
+      <circle cx="340" cy="230" r="100" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-dasharray="2,4" opacity="0.18"/>
+      <circle cx="340" cy="230" r="155" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-dasharray="2,4" opacity="0.12"/>
+      <circle cx="340" cy="230" r="205" fill="none" stroke="#FFFFFF" stroke-width="0.4" stroke-dasharray="2,4" opacity="0.07"/>
+
+      {# Sun #}
+      <circle cx="340" cy="230" r="60" fill="url(#sun-halo)"/>
+      <circle cx="340" cy="230" r="32" fill="url(#sun-grad)"/>
+      <text x="340" y="236" font-family="Georgia, serif" font-style="italic" font-size="14" fill="#3A2410" text-anchor="middle">A.</text>
+
+      {# CBC planet — orbits at 80s, with counter-rotation to keep contents upright #}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 340 230" to="360 340 230" dur="80s" repeatCount="indefinite"/>
+        <g transform="translate(440 230)">
+          <a href="/work/cardboard-critters/" aria-label="Visit the Cardboard Critters case study">
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="80s" repeatCount="indefinite"/>
+              <circle r="22" fill="url(#cbc-grad)" stroke="#3F5A2C" stroke-width="0.6"/>
+              <ellipse cx="-6" cy="-4" rx="7" ry="3" fill="#7AB069" opacity="0.7"/>
+              <ellipse cx="8" cy="6" rx="9" ry="4" fill="#7AB069" opacity="0.6"/>
+              <ellipse cx="-10" cy="8" rx="4" ry="2" fill="#7AB069" opacity="0.55"/>
+              <g transform="translate(-3 -2)">
+                <ellipse cx="3" cy="6" rx="3" ry="0.6" fill="#000" opacity="0.3"/>
+                <rect x="0" y="0" width="6" height="5" rx="1" fill="#D9A975" stroke="#8A6C3F" stroke-width="0.3"/>
+                <circle cx="2" cy="2" r="0.5" fill="#2A2520"/>
+                <circle cx="4" cy="2" r="0.5" fill="#2A2520"/>
+              </g>
+              <text x="0" y="42" font-family="Georgia, serif" font-style="italic" font-size="12" fill="#E8EAF2" text-anchor="middle">Cardboard Critters</text>
+              <text x="0" y="55" font-family="-apple-system, sans-serif" font-size="9" fill="#FFB347" text-anchor="middle">· in development</text>
+            </g>
+          </a>
+        </g>
+      </g>
+
+      {# Goblin's Greed planet — orbits at 140s #}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 340 230" to="360 340 230" dur="140s" repeatCount="indefinite"/>
+        <g transform="translate(495 230)">
+          <a href="/work/goblins-greed/" aria-label="Visit the Goblin's Greed case study">
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="140s" repeatCount="indefinite"/>
+              <circle r="14" fill="url(#gg-grad)" stroke="#3D2A5E" stroke-width="0.5"/>
+              <path d="M-8 0 L-8 -3 Q0 -8 8 -3 L8 0" fill="#3D2A5E" opacity="0.8"/>
+              <circle cx="0" cy="-2" r="2" fill="#FFB347" opacity="0.85"/>
+              <circle cx="-5" cy="3" r="0.6" fill="#FFB347" opacity="0.5"/>
+              <circle cx="5" cy="4" r="0.6" fill="#FFB347" opacity="0.5"/>
+              <text x="0" y="32" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#A8AEC8" text-anchor="middle">Goblin's Greed</text>
+            </g>
+          </a>
+        </g>
+      </g>
+
+      {# Future placeholder — orbits at 220s #}
+      <g>
+        <animateTransform attributeName="transform" type="rotate" from="0 340 230" to="360 340 230" dur="220s" repeatCount="indefinite"/>
+        <g transform="translate(545 230)">
+          <g opacity="0.4">
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="220s" repeatCount="indefinite"/>
+            <circle r="6" fill="none" stroke="#6B7090" stroke-width="0.5" stroke-dasharray="2,2"/>
+            <text x="0" y="22" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#6B7090" text-anchor="middle">future</text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="section">
+  <div class="selected-head">
+    <h2>Selected work</h2>
+    <span class="eyebrow">The planets, in detail</span>
+  </div>
+  <div class="selected-grid">
+    <a class="selected-card" href="/work/cardboard-critters/">
+      <div class="row">
+        <h3>Cardboard Critters</h3>
+        <span class="status">In development</span>
+      </div>
+      <p>A cozy garden of paper-crafted creatures, weathering one season at a time. Built around a layered cardboard material system and data-driven critter AI.</p>
+      <span class="read">Read the case study →</span>
+    </a>
+    <a class="selected-card" href="/work/goblins-greed/">
+      <div class="row">
+        <h3>Goblin's Greed</h3>
+        <span class="status">Concluded · 2026</span>
+      </div>
+      <p>A four-player co-op dungeon crawler with GAS-driven combat and procedural rooms — and a deliberate decision to walk away from a saturated market.</p>
+      <span class="read">Read the case study →</span>
+    </a>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+{% set recentPosts = collections.posts | reverse | limit(3) %}
+{% if recentPosts.length %}
+<section class="section">
+  <div class="selected-head">
+    <h2>From the devlog</h2>
+    <a class="eyebrow" href="/devlog/" style="text-decoration: none;">All posts →</a>
+  </div>
+  <div class="recent-list">
+    {% for post in recentPosts %}
+    <a href="{{ post.url }}">
+      <span class="date">{{ post.date | monthYear }}</span>
+      <span>
+        <h3>{{ post.data.title }}</h3>
+        {% if post.data.dek %}<p>{{ post.data.dek }}</p>{% endif %}
+      </span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<hr class="rule"/>
+{% endif %}
+
+<section class="section">
+  <div class="about-preview">
+    <h2>A few things<br><em>about me</em>—</h2>
+    <div>
+      <p>I'm a solo developer working primarily in Unreal Engine 5. I lean toward systems that are clean to read, fun to extend, and weird around the edges — and toward cutting things instead of bolting more on.</p>
+      <p>Off-hours: tutorial videos, certification chases, and far too much time in Substance.</p>
+      <a class="more" href="/about/">More about me →</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

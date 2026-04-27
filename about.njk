@@ -1,0 +1,139 @@
+---
+title: About
+description: Hi, I'm Addison. Solo game developer, former tech lead, currently building cardboard worlds in Unreal Engine 5.
+permalink: /about/
+accent: sun
+---
+{% extends "base.njk" %}
+{% from "partials/constellation.njk" import constellation %}
+
+{% block main %}
+
+<div class="wayfinding">
+  <span></span>
+  {{ constellation("sun", "at the maker") }}
+</div>
+
+<header class="page-hero">
+  <div class="about-hero-grid">
+    <div>
+      <p class="eyebrow" style="color: var(--accent-sun);">About the maker</p>
+      <h1>Hi, I'm <em>Addison</em>.</h1>
+      <p class="lede">I'm a solo game developer making small worlds in Unreal Engine 5 — currently a cardboard garden, formerly a co-op dungeon. On a good day, I also film tutorials about how the parts fit together.</p>
+      <span class="pin"><span class="dot"></span>Building from Oklahoma · open to interesting conversations</span>
+    </div>
+    <div class="portrait">
+      <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-label="A portrait coin treated with sun-orange glow.">
+        <defs>
+          <radialGradient id="portrait-halo" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#FFB347" stop-opacity="0.35"/>
+            <stop offset="60%" stop-color="#FFB347" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#FFB347" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="portrait-fill" cx="35%" cy="35%" r="80%">
+            <stop offset="0%" stop-color="#3A4068"/>
+            <stop offset="100%" stop-color="#1A2348"/>
+          </radialGradient>
+        </defs>
+        <circle cx="110" cy="110" r="100" fill="url(#portrait-halo)"/>
+        <circle cx="110" cy="110" r="78" fill="url(#portrait-fill)"/>
+        <circle cx="110" cy="110" r="78" fill="none" stroke="#FFB347" stroke-width="1.5" stroke-opacity="0.85"/>
+        <circle cx="110" cy="110" r="83" fill="none" stroke="#FFB347" stroke-width="0.4" stroke-opacity="0.4"/>
+        <g transform="translate(110 92)" fill="#6B7090" opacity="0.55">
+          <circle cx="0" cy="-2" r="14"/>
+          <path d="M-26 36 Q-26 14 0 14 Q26 14 26 36 Z"/>
+        </g>
+        <text x="110" y="180" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#FFB347" text-anchor="middle">— Addison —</text>
+        <g transform="rotate(-30 110 110)">
+          <circle cx="195" cy="110" r="2.5" fill="#7AB069" opacity="0.7"/>
+        </g>
+        <g transform="rotate(70 110 110)">
+          <circle cx="200" cy="110" r="1.8" fill="#9B7DB8" opacity="0.65"/>
+        </g>
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#FFB347" stroke-width="0.3" stroke-dasharray="1,3" stroke-opacity="0.4"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<hr class="rule"/>
+
+<section class="section narrow">
+  <h2>The <em class="accent-em">long version</em></h2>
+  <p>I spent most of my career in automation engineering. I was good at it. By the end I was also missing the part of me that had wanted to make games since I was a kid — not as a hobby on the side, but as the thing I was supposed to be doing. The pull toward this never quite went away, and at some point it got louder than the reasons not to. I went indie in 2025.</p>
+  <aside class="before-this">
+    <p class="lbl">Before this</p>
+    <p class="line">Seven years in automation engineering.</p>
+    <p class="line dim">Dev → team lead → tech lead.</p>
+  </aside>
+  <p>Most days now I'm in Unreal — writing C++ when something needs to be load-bearing, Blueprints when it doesn't yet, and Blender or Substance when the materials need attention. The engineering instincts pay their rent every day, but I'm here for the games. Half the work is cutting things; the other half is figuring out which half is which.</p>
+  <p>I make tutorial content on the side because explaining things is how I actually learn them. There's a UE5 instructor certification on my desk this year too.</p>
+</section>
+
+<div class="pull-quote">
+  <blockquote>The pull toward making games never quite went away. At some point it just got louder than the reasons not to.</blockquote>
+</div>
+
+<hr class="rule"/>
+
+<div class="now-block">
+  <div class="now-head">
+    <h3>What I'm <em>doing right now</em></h3>
+    <span class="eyebrow">Updated April 2026</span>
+  </div>
+  <ul class="now-list">
+    <li>Building Cardboard Critters — the cardboard material pipeline is mostly dialed in; the critter AI behavior tree is what's currently on the wall.</li>
+    <li>Filming a State Trees series for the channel.</li>
+    <li>Studying for the Unreal Authorized Instructor certification.</li>
+    <li>Reading slowly through a stack of design and architecture books, mostly at the kitchen table.</li>
+  </ul>
+</div>
+
+<hr class="rule"/>
+
+<section class="toolkit">
+  <div class="toolkit-head">
+    <h2>The toolkit</h2>
+    <span class="eyebrow">What I reach for</span>
+  </div>
+  <div class="toolkit-grid">
+    <div class="tool"><h4>Unreal 5</h4><p>The editor I live in.</p></div>
+    <div class="tool"><h4>C++</h4><p>For the load-bearing systems.</p></div>
+    <div class="tool"><h4>Blueprints</h4><p>For the parts that change weekly.</p></div>
+    <div class="tool"><h4>Blender</h4><p>Where everything gets shaped.</p></div>
+    <div class="tool"><h4>Substance</h4><p>For textures with opinions.</p></div>
+    <div class="tool"><h4>Notion</h4><p>Where ideas go to argue.</p></div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="split">
+  <h2>Beyond<br/>the editor—</h2>
+  <div>
+    <p>Outside of gamedev I read a lot of design writing, drink a lot of coffee, and pay attention to small craft objects — book covers, restaurant menus, packaging that someone clearly cared about. I think the best games have something in common with those.</p>
+    <p>I also play games, occasionally finishing them.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-stars" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#FFFFFF" opacity="0.6">
+        <circle cx="60" cy="40" r="0.8" class="twinkle-1"/>
+        <circle cx="180" cy="80" r="1" class="twinkle-2"/>
+        <circle cx="320" cy="30" r="0.7"/>
+        <circle cx="480" cy="60" r="0.9" class="twinkle-3"/>
+        <circle cx="540" cy="140" r="0.7"/>
+        <circle cx="100" cy="160" r="0.8" class="twinkle-2"/>
+        <circle cx="380" cy="170" r="0.6"/>
+        <circle cx="220" cy="130" r="0.7" class="twinkle-1"/>
+      </g>
+    </svg>
+  </div>
+  <h2>Want to make <em>something together?</em></h2>
+  <p>I take on the occasional contract, talk to teams that are hiring, and always answer interesting emails.</p>
+  <a class="cta-btn" href="/contact/">Drop me a line →</a>
+</section>
+
+{% endblock %}

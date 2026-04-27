@@ -1,0 +1,217 @@
+---
+title: Cardboard Critters
+description: A cozy garden of paper-crafted creatures, weathering one season at a time. UE5, C++, data-driven systems.
+permalink: /work/cardboard-critters/
+accent: cbc
+---
+{% extends "base.njk" %}
+{% from "partials/constellation.njk" import constellation %}
+{% from "partials/stars.njk" import starfield %}
+
+{% block main %}
+
+<div class="wayfinding">
+  <a class="back-link" href="/">← back to the system</a>
+  {{ constellation("cbc", "currently visiting") }}
+</div>
+
+<header class="cs-hero">
+  <div class="cs-hero-stars" aria-hidden="true">{{ starfield() }}</div>
+  <div class="cs-hero-grid">
+    <div>
+      <p class="eyebrow" style="color: var(--accent-cbc-light);">A planet · in development · 2026</p>
+      <h1>Cardboard Critters</h1>
+      <p class="dek">A cozy garden of paper-crafted creatures, weathering one season at a time.</p>
+    </div>
+    <div class="portrait">
+      <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-label="Close-up of the Cardboard Critters planet, with rolling green terrain, cardboard critters, and a small grey moon.">
+        <defs>
+          <radialGradient id="cbc-large" cx="35%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#B8E2A6"/>
+            <stop offset="60%" stop-color="#6FA05E"/>
+            <stop offset="100%" stop-color="#3F5A2C"/>
+          </radialGradient>
+          <radialGradient id="cbc-halo" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#7AB069" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#7AB069" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="cbc-planet-clip"><circle cx="110" cy="110" r="80"/></clipPath>
+        </defs>
+        <circle cx="110" cy="110" r="100" fill="url(#cbc-halo)"/>
+        <circle cx="110" cy="110" r="80" fill="url(#cbc-large)" stroke="#3F5A2C" stroke-width="0.8"/>
+        <g clip-path="url(#cbc-planet-clip)">
+          <ellipse cx="80" cy="80" rx="34" ry="14" fill="#9DCB8A" opacity="0.65"/>
+          <ellipse cx="140" cy="105" rx="40" ry="16" fill="#9DCB8A" opacity="0.55"/>
+          <ellipse cx="70" cy="140" rx="28" ry="11" fill="#9DCB8A" opacity="0.6"/>
+          <ellipse cx="148" cy="158" rx="22" ry="9" fill="#9DCB8A" opacity="0.5"/>
+          <g transform="translate(96 92)">
+            <ellipse cx="14" cy="22" rx="14" ry="2" fill="#000" opacity="0.3"/>
+            <rect x="0" y="0" width="28" height="20" rx="3" fill="#D9A975" stroke="#8A6C3F" stroke-width="0.6"/>
+            <path d="M0 0 L14 -5 L28 0 Z" fill="#C99B66" stroke="#8A6C3F" stroke-width="0.6"/>
+            <circle cx="9" cy="9" r="1.5" fill="#2A2520"/>
+            <circle cx="19" cy="9" r="1.5" fill="#2A2520"/>
+            <path d="M10 14 Q14 17 18 14" fill="none" stroke="#2A2520" stroke-width="0.8" stroke-linecap="round"/>
+            <rect x="20" y="2" width="6" height="4" rx="1" fill="#6B8E4F" stroke="#3F5A2C" stroke-width="0.3" transform="rotate(8 23 4)"/>
+          </g>
+          <g transform="translate(140 130)">
+            <ellipse cx="6" cy="9" rx="6" ry="0.8" fill="#000" opacity="0.25"/>
+            <rect x="0" y="0" width="12" height="9" rx="1.5" fill="#D9A975" stroke="#8A6C3F" stroke-width="0.4"/>
+            <circle cx="4" cy="4" r="0.8" fill="#2A2520"/>
+            <circle cx="8" cy="4" r="0.8" fill="#2A2520"/>
+          </g>
+          <circle cx="60" cy="115" r="1.2" fill="#E89B6A"/>
+          <circle cx="155" cy="80" r="1" fill="#FFB347"/>
+          <circle cx="75" cy="170" r="1.1" fill="#C66A4A"/>
+        </g>
+        <circle cx="110" cy="110" r="80" fill="none" stroke="#000" stroke-width="0.5" stroke-opacity="0.15"/>
+        <g transform="translate(178 56)">
+          <circle r="9" fill="#C8CDDF" stroke="#6B7090" stroke-width="0.5"/>
+          <circle cx="-3" cy="-2" r="1.5" fill="#A8AEC8" opacity="0.7"/>
+          <circle cx="2" cy="3" r="1" fill="#A8AEC8" opacity="0.6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="cs-meta">
+  <div><p class="lbl">Role</p><p class="val">Solo developer</p></div>
+  <div><p class="lbl">Engine</p><p class="val">Unreal 5</p></div>
+  <div><p class="lbl">Stack</p><p class="val">C++ · Blueprints</p></div>
+  <div><p class="lbl">Pipeline</p><p class="val">Blender · Substance</p></div>
+</div>
+
+<section class="section narrow">
+  <h2>The premise</h2>
+  <p>Cardboard Critters started with a question: what would it feel like to garden in a world that was actually made of paper and tape? Most cozy games dress their props up in soft pastels and call it a day. I wanted the materials themselves to behave — to fade, soften, bend in the rain, and eventually wear through to the cardboard underneath.</p>
+  <p>The answer turned out to be a whole pipeline. A layered material system that ages on its own. Critters with their own routines, opinions about flowers, and a tendency to leave when winter comes. A garden grid that deforms under your hands.</p>
+</section>
+
+<div class="pull-quote">
+  <blockquote>The thing that hooked me was realizing the cardboard had to be a system, not a texture. Once it could weather, the rest of the game had something to react to.</blockquote>
+</div>
+
+<hr class="rule"/>
+
+<section class="cs-system">
+  <div>
+    <p class="eyebrow" style="color: var(--accent-cbc-light);">System 01</p>
+    <h3>A material that knows it's cardboard</h3>
+    <p>The Master Material composes three layers — a fresh surface, a torn middle state, and the raw board underneath. Per-instance Custom Primitive Data drives where each critter falls on that wear curve, plus a sticker atlas lookup so no two share the same decoration.</p>
+    <span class="cs-tag">Master Material</span><span class="cs-tag">CPD</span><span class="cs-tag">Sticker atlas</span>
+  </div>
+  <div class="cs-visual">
+    <svg width="100%" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="20" y="20" width="180" height="34" rx="3" fill="#D9A975" stroke="#8A6C3F" stroke-width="1"/>
+      <text x="32" y="42" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#3A2410">Surface</text>
+      <rect x="20" y="68" width="180" height="34" rx="3" fill="#A57647" stroke="#6B4F2E" stroke-width="1"/>
+      <text x="32" y="90" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#1F1408">Torn</text>
+      <rect x="20" y="116" width="180" height="34" rx="3" fill="#6B4F2E" stroke="#3F2A18" stroke-width="1"/>
+      <text x="32" y="138" font-family="Georgia, serif" font-style="italic" font-size="13" fill="#E8DFC9">Background</text>
+      <line x1="225" y1="34" x2="225" y2="136" stroke="#7AB069" stroke-width="1" stroke-dasharray="3,3"/>
+      <polygon points="222,136 228,136 225,142" fill="#7AB069"/>
+      <text x="240" y="42" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#7AB069">wear</text>
+      <text x="240" y="60" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#7AB069">over</text>
+      <text x="240" y="78" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#7AB069">time</text>
+      <rect x="160" y="26" width="22" height="14" rx="2" fill="#6B8E4F" transform="rotate(-6 171 33)"/>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="cs-system flip">
+  <div>
+    <p class="eyebrow" style="color: var(--accent-cbc-light);">System 02</p>
+    <h3>Critters with somewhere to be</h3>
+    <p>Each critter is a small data object — a definition asset, a set of garden conditions it cares about, and a State Tree that decides what to do moment to moment. The lifecycle is its own machine: critters wander past, decide a garden is worth visiting, settle in if it stays good, and leave when it isn't. No big behavior file. Just clean little pieces talking to each other.</p>
+    <span class="cs-tag">State Tree</span><span class="cs-tag">UCritterDefinition</span><span class="cs-tag">Conditions</span>
+  </div>
+  <div class="cs-visual">
+    <svg width="100%" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g font-family="Georgia, serif" font-style="italic" font-size="11" fill="#E8EAF2">
+        <rect x="14" y="16" width="68" height="26" rx="4" fill="#1A2348" stroke="#3A4068" stroke-width="0.8"/>
+        <text x="48" y="33" text-anchor="middle">wandering</text>
+        <line x1="82" y1="29" x2="106" y2="29" stroke="#6B7090" stroke-width="0.8"/>
+        <polygon points="103,26 109,29 103,32" fill="#6B7090"/>
+        <rect x="106" y="16" width="68" height="26" rx="4" fill="#1A2348" stroke="#3A4068" stroke-width="0.8"/>
+        <text x="140" y="33" text-anchor="middle">moving in</text>
+        <line x1="174" y1="29" x2="198" y2="29" stroke="#6B7090" stroke-width="0.8"/>
+        <polygon points="195,26 201,29 195,32" fill="#6B7090"/>
+        <rect x="198" y="16" width="68" height="26" rx="4" fill="#1A2348" stroke="#3A4068" stroke-width="0.8"/>
+        <text x="232" y="33" text-anchor="middle">visiting</text>
+        <line x1="232" y1="42" x2="232" y2="68" stroke="#6B7090" stroke-width="0.8"/>
+        <polygon points="229,65 232,71 235,65" fill="#6B7090"/>
+        <rect x="198" y="72" width="68" height="26" rx="4" fill="#3F5A2C" stroke="#7AB069" stroke-width="0.8"/>
+        <text x="232" y="89" text-anchor="middle" fill="#E8EAF2">resident</text>
+        <line x1="198" y1="85" x2="100" y2="135" stroke="#6B7090" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <polygon points="103,138 97,134 99,140" fill="#6B7090"/>
+        <rect x="56" y="128" width="68" height="26" rx="4" fill="#5C2818" stroke="#C66A4A" stroke-width="0.8"/>
+        <text x="90" y="145" text-anchor="middle" fill="#E8EAF2">leaving</text>
+        <text x="160" y="118" font-size="10" fill="#6B7090">conditions degrade →</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="cs-system">
+  <div>
+    <p class="eyebrow" style="color: var(--accent-cbc-light);">System 03</p>
+    <h3>The garden as a thing you touch</h3>
+    <p>The terrain is a Dynamic Mesh Component that you reshape in real time — dig a path, pile up a hill, terrace a slope. Async collision keeps it responsive while critters update their pathing on top. It previews live in the editor too, so I can build a scene without ever hitting Play.</p>
+    <span class="cs-tag">UDynamicMeshComponent</span><span class="cs-tag">Async cook</span><span class="cs-tag">In-editor preview</span>
+  </div>
+  <div class="cs-visual">
+    <svg width="100%" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M20 130 Q70 90 110 110 T200 100 T260 130 L260 160 L20 160 Z" fill="#3F5A2C" stroke="#7AB069" stroke-width="0.8"/>
+      <path d="M20 130 Q70 90 110 110 T200 100 T260 130" fill="none" stroke="#7AB069" stroke-width="0.8" stroke-dasharray="2,3"/>
+      <g fill="#7AB069" opacity="0.7">
+        <circle cx="60" cy="118" r="1.5"/>
+        <circle cx="90" cy="100" r="1.5"/>
+        <circle cx="120" cy="108" r="1.5"/>
+        <circle cx="150" cy="104" r="1.5"/>
+        <circle cx="180" cy="100" r="1.5"/>
+        <circle cx="210" cy="106" r="1.5"/>
+        <circle cx="240" cy="118" r="1.5"/>
+      </g>
+      <g transform="translate(125,76)">
+        <ellipse cx="14" cy="26" rx="14" ry="2.5" fill="#000" opacity="0.3"/>
+        <rect x="0" y="0" width="28" height="22" rx="3" fill="#D9A975" stroke="#8A6C3F" stroke-width="0.8"/>
+        <circle cx="9" cy="10" r="1.8" fill="#2A2520"/>
+        <circle cx="19" cy="10" r="1.8" fill="#2A2520"/>
+      </g>
+      <text x="20" y="40" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#7AB069">deformable mesh</text>
+      <line x1="20" y1="44" x2="20" y2="125" stroke="#7AB069" stroke-width="0.5" stroke-dasharray="2,2"/>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="section narrow">
+  <h2>What I've learned so far</h2>
+  <p>Building this slowly has taught me to push back on my own urge to over-engineer. The critter system started life as a tangle of components and inheritance; it's now five small pieces that don't know much about each other. The cardboard material had four layers, then three. The grid was a Procedural Mesh, until it wasn't.</p>
+  <p>Cutting things has been most of the work — and most of the fun.</p>
+</section>
+
+<a class="cs-foot-nav to-gg" href="/work/goblins-greed/">
+  <span class="lhs">Next planet over →</span>
+  <span class="rhs">
+    <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="gg-mini" cx="35%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#9B7DB8"/>
+          <stop offset="100%" stop-color="#5C4180"/>
+        </radialGradient>
+      </defs>
+      <circle cx="16" cy="16" r="14" fill="url(#gg-mini)" stroke="#3D2A5E" stroke-width="0.5"/>
+      <path d="M8 16 L8 13 Q16 8 24 13 L24 16" fill="#3D2A5E" opacity="0.8"/>
+      <circle cx="16" cy="14" r="2" fill="#FFB347" opacity="0.85"/>
+    </svg>
+    <em>Goblin's Greed</em>
+  </span>
+</a>
+
+{% endblock %}

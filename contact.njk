@@ -1,0 +1,96 @@
+---
+title: Contact
+description: Get in touch with Addison. Always happy to hear from teams hiring, devs comparing notes, and curious people.
+permalink: /contact/
+---
+{% extends "base.njk" %}
+
+{% block main %}
+
+<header class="page-hero">
+  <p class="eyebrow">Contact</p>
+  <h1>Get in <em style="color: var(--accent-sun);">touch</em>.</h1>
+  <p class="lede">Always happy to hear from teams that are hiring, devs who want to compare notes, or anyone curious about the worlds I'm building.</p>
+</header>
+
+<section class="ct-email-block">
+  <div class="ct-signal" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="18" fill="none" stroke="#FFB347" stroke-width="0.6" stroke-opacity="0.5" class="signal-ring"/>
+      <circle cx="40" cy="40" r="18" fill="none" stroke="#FFB347" stroke-width="0.6" stroke-opacity="0.5" class="signal-ring-2"/>
+      <circle cx="40" cy="40" r="14" fill="none" stroke="#FFB347" stroke-width="0.4" stroke-opacity="0.35"/>
+      <circle cx="40" cy="40" r="9" fill="none" stroke="#FFB347" stroke-width="0.5" stroke-opacity="0.5"/>
+      <circle cx="40" cy="40" r="4" fill="#FFB347"/>
+      <circle cx="40" cy="40" r="2" fill="#FFE0A8"/>
+    </svg>
+  </div>
+  <div class="ct-email-text">
+    <p class="ct-email-lbl">— Easiest way:</p>
+    <a class="ct-email" href="mailto:hello@addison.dev">hello@addison.dev</a>
+    <p class="ct-email-note">I usually reply within a few days. Sooner if it's interesting.</p>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="ct-open">
+  <div class="ct-open-head">
+    <h2>What I'm <em style="color: var(--accent-sun);">open to</em></h2>
+    <span class="eyebrow">Honest signals</span>
+  </div>
+  <div class="ct-open-grid">
+    <div class="ct-open-item">
+      <h4>Full-time roles<span class="yes">· yes</span></h4>
+      <p>Small or mid-sized teams. Senior IC or tech lead. Studios that ship things they care about.</p>
+    </div>
+    <div class="ct-open-item">
+      <h4>Contract work<span class="yes">· yes</span></h4>
+      <p>Defined scope, clear timeline. UE5 systems, gameplay programming, technical architecture.</p>
+    </div>
+    <div class="ct-open-item">
+      <h4>Podcasts &amp; press<span class="yes">· yes</span></h4>
+      <p>Especially if you want to talk about indie devlogs, leaving a senior career, or solo development.</p>
+    </div>
+    <div class="ct-open-item">
+      <h4>"Quick chat"<span class="no">· not really</span></h4>
+      <p>If it can be an email, please make it an email. Saves us both an awkward calendar dance.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="ct-elsewhere">
+  <div class="ct-elsewhere-head">
+    <h2><em style="color: var(--accent-sun);">Elsewhere</em> on the internet</h2>
+    <span class="eyebrow">Other places I write &amp; share</span>
+  </div>
+  <div class="ct-elsewhere-grid">
+    <a class="ct-place" href="https://youtube.com/" rel="me">
+      <span class="name">YouTube</span>
+      <span class="desc">Tutorials &amp; devlogs.<br/>Where most people find me.</span>
+    </a>
+    <a class="ct-place" href="https://github.com/" rel="me">
+      <span class="name">GitHub</span>
+      <span class="desc">Public repos, mostly UE5 plugins and tutorial code.</span>
+    </a>
+    <a class="ct-place" href="https://itch.io/" rel="me">
+      <span class="name">Itch.io</span>
+      <span class="desc">Where the playable builds eventually land.</span>
+    </a>
+    <a class="ct-place" href="https://bsky.app/" rel="me">
+      <span class="name">Bluesky</span>
+      <span class="desc">Where I think out loud, briefly, about gamedev.</span>
+    </a>
+    <a class="ct-place" href="https://linkedin.com/" rel="me">
+      <span class="name">LinkedIn</span>
+      <span class="desc">For the recruiters &amp; the prior chapter.</span>
+    </a>
+    <a class="ct-place" href="/feed.xml">
+      <span class="name">RSS</span>
+      <span class="desc">For people who still keep a reader. Bless you.</span>
+    </a>
+  </div>
+</section>
+
+{% endblock %}

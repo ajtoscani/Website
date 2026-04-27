@@ -1,0 +1,32 @@
+{# Constellation wayfinding indicator.
+
+   Shows the system in miniature with one element highlighted.
+   Usage:
+     {% from "partials/constellation.njk" import constellation %}
+     {{ constellation("cbc", "currently visiting") }}
+
+   Valid `at` values: "sun", "cbc", "gg", or anything else for no highlight.
+#}
+{% macro constellation(at, label) %}
+<span class="constellation" aria-label="System map indicator">
+  <svg width="80" height="14" viewBox="0 0 80 14" xmlns="http://www.w3.org/2000/svg">
+    <line x1="2" y1="7" x2="78" y2="7" stroke="#3A4068" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+    {# Sun #}
+    <circle cx="10" cy="7" r="3.5" fill="#FFB347"/>
+    {% if at == "sun" %}<circle cx="10" cy="7" r="5" stroke="#FFB347" stroke-width="0.8" fill="none"/>{% endif %}
+
+    {# CBC #}
+    <circle cx="30" cy="7" r="3" fill="#5A8A4F"
+      {% if at == "cbc" %}stroke="#E8EAF2" stroke-width="0.6"{% endif %}/>
+
+    {# GG #}
+    <circle cx="50" cy="7" r="2.2" fill="#5C4180"
+      {% if at == "gg" %}stroke="#E8EAF2" stroke-width="0.6"{% endif %}/>
+
+    {# Future placeholder #}
+    <circle cx="70" cy="7" r="1.6" fill="none" stroke="#3A4068" stroke-width="0.5" stroke-dasharray="1,1"/>
+  </svg>
+  <span>{{ label or "currently visiting" }}</span>
+</span>
+{% endmacro %}

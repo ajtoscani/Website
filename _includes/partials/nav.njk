@@ -1,0 +1,13 @@
+{# Site navigation. Reads `page.url` to mark the active link. #}
+<nav class="site-nav" aria-label="Primary">
+  <a class="site-logo" href="/">
+    <span class="mark" aria-hidden="true"></span>
+    Addison
+  </a>
+  <div class="site-links">
+    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Work</a>
+    <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+    <a href="/devlog/" {% if page.url.startsWith("/devlog") %}aria-current="page"{% endif %}>Devlog</a>
+    <a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a>
+  </div>
+</nav>

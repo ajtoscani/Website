@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title | striptags(true) }} — {% endif %}Addison · indie game developer</title>
+  <meta name="description" content="{{ description or 'Addison — solo indie game developer making small worlds in Unreal Engine 5.' }}">
+  <meta property="og:title" content="{% if title %}{{ title | striptags(true) }} — {% endif %}Addison">
+  <meta property="og:description" content="{{ description or 'Addison — solo indie game developer making small worlds in Unreal Engine 5.' }}">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  {% block head %}{% endblock %}
+</head>
+<body{% if accent %} data-accent="{{ accent }}"{% endif %}>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "partials/nav.njk" %}
+  <main id="main">
+    {% block main %}{{ content | safe }}{% endblock %}
+  </main>
+  {% include "partials/footer.njk" %}
+</body>
+</html>

@@ -1,0 +1,212 @@
+---
+title: Devlog
+description: Notes from the workshop. Devlogs about Cardboard Critters and the systems behind it, occasional tutorials, occasional quieter notes.
+permalink: /devlog/
+---
+{% extends "base.njk" %}
+
+{% block main %}
+
+{% set allPosts = collections.posts | reverse %}
+{% set featured = allPosts[0] %}
+{% set rest = allPosts.slice(1) %}
+
+<header class="dl-header">
+  <div class="dl-header-stars" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 200 80" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#FFFFFF" opacity="0.6">
+        <circle cx="20" cy="20" r="0.7" class="twinkle-1"/>
+        <circle cx="60" cy="40" r="0.9" class="twinkle-2"/>
+        <circle cx="100" cy="15" r="0.6"/>
+        <circle cx="140" cy="55" r="0.8" class="twinkle-3"/>
+        <circle cx="180" cy="30" r="0.7" class="twinkle-1"/>
+        <circle cx="40" cy="65" r="0.5"/>
+        <circle cx="160" cy="10" r="0.6" class="twinkle-2"/>
+      </g>
+    </svg>
+  </div>
+  <p class="eyebrow">Devlog &amp; writing</p>
+  <h1>Notes from the <em>workshop</em>.</h1>
+  <p>Mostly devlogs about Cardboard Critters and the systems behind it. Occasionally a tutorial, occasionally a quieter note. Posted when something is finished enough to be worth writing down.</p>
+</header>
+
+<div class="dl-filter">
+  <span class="label">Filter</span>
+  <button class="dl-chip active" data-filter="all">All</button>
+  <button class="dl-chip" data-filter="devlog">Devlogs</button>
+  <button class="dl-chip" data-filter="tutorial">Tutorials</button>
+  <button class="dl-chip" data-filter="note">Notes</button>
+</div>
+
+{% if featured %}
+<a class="dl-featured" href="{{ featured.url }}" data-type="{{ featured.data.type }}">
+  <div>
+    <p class="dl-featured-meta">
+      <span class="pill">Latest</span>
+      <span><time datetime="{{ featured.date | isoDate }}">{{ featured.date | monthYear }}</time>{% if featured.data.read_time %} · {{ featured.data.read_time }} min read{% endif %}</span>
+      {% if featured.data.project %}
+        <span class="planet-mark">
+          <span class="dot" style="background: {{ featured.data.project | projectColor }};"></span>
+          from {{ featured.data.project | projectName }}
+        </span>
+      {% endif %}
+    </p>
+    <h2>{{ featured.data.title }}</h2>
+    {% if featured.data.dek %}<p>{{ featured.data.dek }}</p>{% endif %}
+    <span class="cta-text">Read the post →</span>
+  </div>
+  <div class="dl-featured-vis">
+    {% if featured.data.project == "cbc" %}
+      {# CBC planet visual #}
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="dl-cbc" cx="35%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#B8E2A6"/>
+            <stop offset="100%" stop-color="#5A8A4F"/>
+          </radialGradient>
+          <radialGradient id="dl-cbc-halo" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#7AB069" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#7AB069" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g fill="#FFFFFF" opacity="0.5">
+          <circle cx="20" cy="30" r="0.7" class="twinkle-1"/>
+          <circle cx="135" cy="40" r="0.6"/>
+          <circle cx="30" cy="125" r="0.8" class="twinkle-2"/>
+          <circle cx="140" cy="130" r="0.7"/>
+        </g>
+        <circle cx="80" cy="80" r="60" fill="url(#dl-cbc-halo)"/>
+        <circle cx="80" cy="80" r="40" fill="url(#dl-cbc)" stroke="#3F5A2C" stroke-width="0.6"/>
+        <ellipse cx="68" cy="72" rx="14" ry="6" fill="#9DCB8A" opacity="0.5"/>
+        <ellipse cx="92" cy="92" rx="16" ry="6" fill="#9DCB8A" opacity="0.5"/>
+        <g transform="translate(70 76)">
+          <rect x="0" y="0" width="14" height="10" rx="1.5" fill="#D9A975" stroke="#8A6C3F" stroke-width="0.4"/>
+          <circle cx="4.5" cy="4" r="0.8" fill="#2A2520"/>
+          <circle cx="9.5" cy="4" r="0.8" fill="#2A2520"/>
+        </g>
+      </svg>
+    {% elif featured.data.project == "gg" %}
+      {# Goblin's Greed market chart #}
+      <svg width="220" height="160" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g font-family="Georgia, serif" font-style="italic" font-size="9" fill="#6B7090">
+          <text x="14" y="20">Steam · co-op dungeon crawlers</text>
+        </g>
+        <g stroke="#3A4068" stroke-width="0.5" stroke-dasharray="2,3" fill="none">
+          <line x1="14" y1="130" x2="206" y2="130"/>
+          <line x1="14" y1="100" x2="206" y2="100"/>
+          <line x1="14" y1="70" x2="206" y2="70"/>
+          <line x1="14" y1="40" x2="206" y2="40"/>
+        </g>
+        <g fill="#9B7DB8" opacity="0.5">
+          <circle cx="30" cy="118" r="2.5"/>
+          <circle cx="48" cy="98" r="3"/>
+          <circle cx="62" cy="86" r="2.8"/>
+          <circle cx="78" cy="72" r="3.5"/>
+          <circle cx="94" cy="60" r="3"/>
+          <circle cx="108" cy="56" r="3.2"/>
+          <circle cx="124" cy="48" r="3.5"/>
+          <circle cx="140" cy="44" r="3"/>
+          <circle cx="156" cy="40" r="2.8"/>
+          <circle cx="172" cy="36" r="3.5"/>
+        </g>
+        <circle cx="186" cy="34" r="6" fill="none" stroke="#9B7DB8" stroke-width="0.8" stroke-dasharray="2,2"/>
+        <text x="186" y="22" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#9B7DB8" text-anchor="middle">where mine</text>
+        <text x="186" y="14" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#9B7DB8" text-anchor="middle">would land</text>
+        <line x1="14" y1="142" x2="206" y2="142" stroke="#6B7090" stroke-width="0.5"/>
+      </svg>
+    {% else %}
+      {# Generic visual: a small constellation #}
+      <svg width="120" height="80" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="#A8AEC8">
+          <circle cx="20" cy="20" r="2"/>
+          <circle cx="50" cy="40" r="2.5"/>
+          <circle cx="85" cy="25" r="2"/>
+          <circle cx="100" cy="55" r="2.5"/>
+          <circle cx="35" cy="60" r="2"/>
+        </g>
+        <g stroke="#A8AEC8" stroke-width="0.4" opacity="0.5" fill="none">
+          <line x1="20" y1="20" x2="50" y2="40"/>
+          <line x1="50" y1="40" x2="85" y2="25"/>
+          <line x1="85" y1="25" x2="100" y2="55"/>
+          <line x1="50" y1="40" x2="35" y2="60"/>
+        </g>
+      </svg>
+    {% endif %}
+  </div>
+</a>
+{% endif %}
+
+{% if rest.length %}
+<div class="dl-list" id="dl-list">
+  {% for post in rest %}
+  <a class="dl-post" href="{{ post.url }}" data-type="{{ post.data.type }}">
+    <div class="dl-post-meta">
+      <time datetime="{{ post.date | isoDate }}">{{ post.date | monthYear }}</time>
+      <span class="type">{{ post.data.type }}</span>
+      {% if post.data.project %}
+        <span class="planet-mark">
+          <span class="dot" style="background: {{ post.data.project | projectColor }};"></span>
+          <span>{{ post.data.project | projectLabel }}</span>
+        </span>
+      {% endif %}
+    </div>
+    <div>
+      <h3>{{ post.data.title }}</h3>
+      {% if post.data.dek %}<p>{{ post.data.dek }}</p>{% endif %}
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% elif not featured %}
+<p class="dl-empty">Nothing posted yet. Check back soon — the first one's writing itself.</p>
+{% endif %}
+
+<section class="dl-feed">
+  <div class="dl-feed-stars" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 600 140" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#FFFFFF" opacity="0.5">
+        <circle cx="60" cy="30" r="0.8" class="twinkle-1"/>
+        <circle cx="180" cy="60" r="0.7"/>
+        <circle cx="320" cy="20" r="0.6" class="twinkle-2"/>
+        <circle cx="440" cy="80" r="0.9" class="twinkle-3"/>
+        <circle cx="540" cy="40" r="0.7"/>
+        <circle cx="100" cy="100" r="0.7"/>
+        <circle cx="380" cy="110" r="0.6" class="twinkle-1"/>
+        <circle cx="220" cy="90" r="0.7"/>
+      </g>
+    </svg>
+  </div>
+  <h3>Want this in your reader?</h3>
+  <p>I keep a feed for people who do that sort of thing.</p>
+  <span class="dl-feed-links">
+    <a href="/feed.xml">RSS</a>
+    <a href="https://youtube.com/" rel="me">YouTube</a>
+    <a href="mailto:hello@addison.dev?subject=Subscribe">Email digest</a>
+  </span>
+</section>
+
+{# Filter chip behavior — toggle visibility based on data-type. #}
+<script>
+(function() {
+  const chips = document.querySelectorAll('.dl-chip');
+  const posts = document.querySelectorAll('.dl-post');
+  const featured = document.querySelector('.dl-featured');
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const filter = chip.dataset.filter;
+      chips.forEach(c => c.classList.toggle('active', c === chip));
+      posts.forEach(post => {
+        const match = filter === 'all' || post.dataset.type === filter;
+        post.style.display = match ? '' : 'none';
+      });
+      if (featured) {
+        const featuredType = featured.dataset.type;
+        featured.style.display = (filter === 'all' || featuredType === filter) ? '' : 'none';
+      }
+    });
+  });
+})();
+</script>
+
+{% endblock %}

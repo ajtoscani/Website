@@ -1,0 +1,235 @@
+---
+title: Goblin's Greed
+description: A four-player co-op dungeon crawler in UE5 — and a deliberate decision to walk away from a saturated market.
+permalink: /work/goblins-greed/
+accent: gg
+---
+{% extends "base.njk" %}
+{% from "partials/constellation.njk" import constellation %}
+{% from "partials/stars.njk" import starfield %}
+
+{% block main %}
+
+<div class="wayfinding">
+  <a class="back-link" href="/">← back to the system</a>
+  {{ constellation("gg", "currently visiting") }}
+</div>
+
+<header class="cs-hero">
+  <div class="cs-hero-stars" aria-hidden="true">{{ starfield() }}</div>
+  <div class="cs-hero-grid">
+    <div>
+      <p class="eyebrow" style="color: var(--accent-gg);">A planet · concluded March 2026 · Oct 2025 – Mar 2026</p>
+      <h1>Goblin's <em style="color: var(--accent-gg);">Greed</em></h1>
+      <p class="dek">A four-player co-op dungeon crawler — and a deliberate decision to walk away from a saturated market.</p>
+    </div>
+    <div class="portrait">
+      <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-label="Close-up of the Goblin's Greed planet, with a dungeon archway and two flickering torches.">
+        <defs>
+          <radialGradient id="gg-large" cx="35%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#B89DCB"/>
+            <stop offset="60%" stop-color="#7A5C9D"/>
+            <stop offset="100%" stop-color="#3D2A5E"/>
+          </radialGradient>
+          <radialGradient id="gg-halo" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#9B7DB8" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#9B7DB8" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="gg-planet-clip"><circle cx="110" cy="110" r="80"/></clipPath>
+          <radialGradient id="torch-glow" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#FFE0A8"/>
+            <stop offset="50%" stop-color="#FFB347"/>
+            <stop offset="100%" stop-color="#E89530" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="110" cy="110" r="100" fill="url(#gg-halo)"/>
+        <circle cx="110" cy="110" r="80" fill="url(#gg-large)" stroke="#3D2A5E" stroke-width="0.8"/>
+        <g clip-path="url(#gg-planet-clip)">
+          <path d="M70 145 L70 110 Q110 80 150 110 L150 145 Z" fill="#2A1F40" stroke="#1A1028" stroke-width="0.8"/>
+          <path d="M76 145 L76 113 Q110 88 144 113 L144 145" fill="#0F0820" stroke="#1A1028" stroke-width="0.5"/>
+          <rect x="106" y="120" width="8" height="25" fill="#3D2A5E"/>
+          <ellipse cx="78" cy="105" rx="9" ry="9" fill="url(#torch-glow)" opacity="0.85" class="flicker-1"/>
+          <rect x="76" y="108" width="4" height="10" fill="#6B4F2E"/>
+          <ellipse cx="142" cy="105" rx="9" ry="9" fill="url(#torch-glow)" opacity="0.85" class="flicker-2"/>
+          <rect x="140" y="108" width="4" height="10" fill="#6B4F2E"/>
+          <ellipse cx="78" cy="100" rx="3" ry="5" fill="#FFB347" class="flicker-1"/>
+          <ellipse cx="142" cy="100" rx="3" ry="5" fill="#FFB347" class="flicker-2"/>
+          <g fill="#1A1028" opacity="0.7">
+            <rect x="88" y="148" width="4" height="3"/>
+            <rect x="100" y="152" width="5" height="3"/>
+            <rect x="118" y="150" width="3" height="3"/>
+            <rect x="128" y="155" width="4" height="2"/>
+          </g>
+        </g>
+        <circle cx="110" cy="110" r="80" fill="none" stroke="#000" stroke-width="0.5" stroke-opacity="0.15"/>
+        <g transform="translate(178 56)">
+          <circle r="9" fill="#C8CDDF" stroke="#6B7090" stroke-width="0.5"/>
+          <circle cx="-3" cy="-2" r="1.5" fill="#A8AEC8" opacity="0.7"/>
+          <circle cx="2" cy="3" r="1" fill="#A8AEC8" opacity="0.6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="cs-meta">
+  <div><p class="lbl">Role</p><p class="val">Solo developer</p></div>
+  <div><p class="lbl">Engine</p><p class="val">Unreal 5 · GAS</p></div>
+  <div><p class="lbl">Stack</p><p class="val">C++ · Steam</p></div>
+  <div><p class="lbl">Status</p><p class="val">Concluded · 2026</p></div>
+</div>
+
+<section class="section narrow">
+  <h2>The premise</h2>
+  <p>Goblin's Greed was a four-player co-op dungeon crawler — procedurally-generated rooms, GAS-driven combat, traps that wanted to ruin your day, and a goblin merchant at the end of every run who wanted to do the same. The systems were the most ambitious thing I'd ever built solo, and most of them worked.</p>
+  <p>I shelved it in March 2026. Not because the scope had run away, and not because I'd hit a technical wall. I shelved it because the market had answered a question I should have asked sooner — and the answer was no.</p>
+</section>
+
+<div class="pull-quote">
+  <blockquote>The hardest part of being a solo developer isn't building the thing. It's reading the market well enough to know which thing is worth building.</blockquote>
+</div>
+
+<hr class="rule"/>
+
+<section class="cs-system">
+  <div>
+    <p class="eyebrow" style="color: var(--accent-gg);">System 01</p>
+    <h3>Combat that survives the network</h3>
+    <p>Combat ran on the Gameplay Ability System with custom ability tasks for everything from charged shots to chained combos. Server-authoritative, client-predicted where it mattered, and resilient enough that the multiplayer never felt like the bolted-on layer it usually is in solo dev co-op games.</p>
+    <span class="cs-tag">GAS</span><span class="cs-tag">AbilityTasks</span><span class="cs-tag">Replication</span>
+  </div>
+  <div class="cs-visual">
+    <svg width="100%" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g font-family="Georgia, serif" font-style="italic" font-size="11" fill="#E8EAF2">
+        <rect x="20" y="20" width="100" height="34" rx="4" fill="#3D2A5E" stroke="#9B7DB8" stroke-width="0.8"/>
+        <text x="70" y="40" text-anchor="middle">Server</text>
+        <text x="70" y="50" text-anchor="middle" font-size="9" fill="#B89DCB">authority</text>
+        <line x1="120" y1="37" x2="160" y2="37" stroke="#9B7DB8" stroke-width="0.6" stroke-dasharray="3,3"/>
+        <polygon points="157,34 163,37 157,40" fill="#9B7DB8"/>
+        <text x="140" y="32" text-anchor="middle" font-size="9" font-style="italic" fill="#B89DCB">replicate</text>
+        <rect x="160" y="20" width="100" height="34" rx="4" fill="#1A2348" stroke="#6B7090" stroke-width="0.8"/>
+        <text x="210" y="40" text-anchor="middle">Client</text>
+        <text x="210" y="50" text-anchor="middle" font-size="9" fill="#A8AEC8">prediction</text>
+        <rect x="20" y="80" width="240" height="36" rx="4" fill="#1A2348" stroke="#6B7090" stroke-width="0.5"/>
+        <text x="140" y="100" text-anchor="middle" font-size="11">AbilityTask · WaitDelayWithProgress</text>
+        <text x="140" y="112" text-anchor="middle" font-size="9" fill="#A8AEC8">drives charged shots, channels, combos</text>
+        <rect x="20" y="128" width="240" height="36" rx="4" fill="#1A2348" stroke="#6B7090" stroke-width="0.5"/>
+        <text x="140" y="148" text-anchor="middle" font-size="11">AbilityTask · FireArrowSequence</text>
+        <text x="140" y="160" text-anchor="middle" font-size="9" fill="#A8AEC8">multi-shot &amp; trap sequencing</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="cs-system flip">
+  <div>
+    <p class="eyebrow" style="color: var(--accent-gg);">System 02</p>
+    <h3>Dungeons assembled at runtime</h3>
+    <p>Rooms were built from a layout data asset that defined connectivity, encounter density, and trap placement. A failsafe layer in the Game Instance retried generation when a layout dead-ended — players never saw the seam. Each room was its own little machine of triggers, traps, and goblin merchants.</p>
+    <span class="cs-tag">Procedural layouts</span><span class="cs-tag">Failsafe retry</span><span class="cs-tag">GameInstance</span>
+  </div>
+  <div class="cs-visual">
+    <svg width="100%" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="#9B7DB8" stroke-width="0.8" fill="#3D2A5E" fill-opacity="0.5">
+        <rect x="40" y="22" width="36" height="28"/>
+        <rect x="84" y="22" width="36" height="28"/>
+        <rect x="128" y="22" width="36" height="28"/>
+        <rect x="40" y="58" width="36" height="28"/>
+        <rect x="172" y="58" width="36" height="28"/>
+        <rect x="40" y="94" width="36" height="28"/>
+        <rect x="84" y="94" width="36" height="28"/>
+        <rect x="128" y="94" width="36" height="28"/>
+        <rect x="172" y="94" width="36" height="28"/>
+        <rect x="216" y="94" width="36" height="28"/>
+      </g>
+      <g stroke="#9B7DB8" stroke-width="1" fill="none">
+        <line x1="76" y1="36" x2="84" y2="36"/>
+        <line x1="120" y1="36" x2="128" y2="36"/>
+        <line x1="58" y1="50" x2="58" y2="58"/>
+        <line x1="58" y1="86" x2="58" y2="94"/>
+        <line x1="190" y1="86" x2="190" y2="94"/>
+        <line x1="76" y1="108" x2="84" y2="108"/>
+        <line x1="120" y1="108" x2="128" y2="108"/>
+        <line x1="164" y1="108" x2="172" y2="108"/>
+        <line x1="208" y1="108" x2="216" y2="108"/>
+      </g>
+      <g font-family="Georgia, serif" font-style="italic" font-size="9" fill="#B89DCB" text-anchor="middle">
+        <text x="58" y="40">start</text>
+        <text x="234" y="112">boss</text>
+        <text x="146" y="112">trap</text>
+        <text x="190" y="76">shop</text>
+      </g>
+      <g transform="translate(40 138)">
+        <rect width="200" height="28" rx="4" fill="#1A2348" stroke="#6B7090" stroke-width="0.5"/>
+        <text x="100" y="14" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#A8AEC8" text-anchor="middle">if generation fails →</text>
+        <text x="100" y="24" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#9B7DB8" text-anchor="middle">retry from GameInstance, silently</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="cs-system">
+  <div>
+    <p class="eyebrow" style="color: var(--accent-gg);">System 03</p>
+    <h3>Two views of every animation</h3>
+    <p>First-person hands and a third-person body, both driven from the same animation set through Animation Layer Interfaces. Per-weapon ALIs swapped behavior cleanly. Aim offsets used Control Rotation rather than custom replicated variables, which removed a class of multiplayer bugs that had eaten weeks earlier in the project.</p>
+    <span class="cs-tag">ALI</span><span class="cs-tag">Aim Offsets</span><span class="cs-tag">Control Rotation</span>
+  </div>
+  <div class="cs-visual">
+    <svg width="100%" height="180" viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g font-family="Georgia, serif" font-style="italic" font-size="10" fill="#E8EAF2">
+        <rect x="20" y="20" width="110" height="60" rx="4" fill="#1A2348" stroke="#9B7DB8" stroke-width="0.8"/>
+        <text x="75" y="38" text-anchor="middle">First-person</text>
+        <text x="75" y="50" text-anchor="middle" font-size="9" fill="#B89DCB">SetOnlyOwnerSee</text>
+        <g transform="translate(48 56)" fill="#B89DCB">
+          <rect x="0" y="6" width="20" height="6" rx="1.5"/>
+          <rect x="22" y="2" width="14" height="3" rx="0.5"/>
+        </g>
+        <rect x="150" y="20" width="110" height="60" rx="4" fill="#1A2348" stroke="#9B7DB8" stroke-width="0.8"/>
+        <text x="205" y="38" text-anchor="middle">Third-person</text>
+        <text x="205" y="50" text-anchor="middle" font-size="9" fill="#B89DCB">SetOwnerNoSee</text>
+        <g transform="translate(190 54)" fill="#B89DCB">
+          <circle cx="14" cy="6" r="3"/>
+          <path d="M8 10 L20 10 L18 22 L10 22 Z"/>
+        </g>
+        <rect x="20" y="100" width="240" height="48" rx="4" fill="#3D2A5E" stroke="#9B7DB8" stroke-width="0.8"/>
+        <text x="140" y="120" text-anchor="middle">AnimLayerInterface · per weapon</text>
+        <text x="140" y="135" text-anchor="middle" font-size="9" fill="#B89DCB">same Pose interface, different bodies</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<section class="section narrow">
+  <h2>What I learned by stopping</h2>
+  <p>The market analysis came too late. By the time I was deep enough into Steam tag data and concurrent-player charts to see the saturation clearly, I had six months of work in the project. The hard call was admitting that more polish wouldn't fix a positioning problem.</p>
+  <p>Concluding it taught me to do market research first and the engineering second — which I'd known intellectually for years, and now know in my bones. The post-mortem on the devlog goes into the numbers.</p>
+  <p><a href="/devlog/goblins-greed-postmortem/" style="color: var(--accent-gg); border-bottom: 1px solid rgba(184,157,203,0.4); text-decoration: none; padding-bottom: 1px;">Read the full post-mortem on the devlog →</a></p>
+</section>
+
+<a class="cs-foot-nav to-cbc" href="/work/cardboard-critters/">
+  <span class="lhs">Next planet over →</span>
+  <span class="rhs">
+    <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="cbc-mini" cx="35%" cy="35%" r="70%">
+          <stop offset="0%" stop-color="#A8D89A"/>
+          <stop offset="100%" stop-color="#5A8A4F"/>
+        </radialGradient>
+      </defs>
+      <circle cx="16" cy="16" r="14" fill="url(#cbc-mini)" stroke="#3F5A2C" stroke-width="0.5"/>
+      <ellipse cx="12" cy="12" rx="5" ry="2" fill="#7AB069" opacity="0.7"/>
+      <ellipse cx="20" cy="18" rx="6" ry="2.5" fill="#7AB069" opacity="0.6"/>
+      <rect x="13" y="14" width="6" height="5" rx="1" fill="#D9A975" stroke="#8A6C3F" stroke-width="0.3"/>
+    </svg>
+    <em>Cardboard Critters</em>
+  </span>
+</a>
+
+{% endblock %}
