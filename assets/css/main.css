@@ -213,8 +213,24 @@ em { font-style: italic; }
 }
 
 /* === Homepage hero (solar system) ================================ */
+.home-hero-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.home-hero-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.home-hero-stars svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .home-hero {
   position: relative;
+  z-index: 1;
   padding: 16px var(--gutter) 64px;
   max-width: var(--content-wide);
   margin: 0 auto;
@@ -510,7 +526,7 @@ em { font-style: italic; }
   border: 0.5px solid var(--border);
   border-radius: var(--radius-card);
   padding: 22px 24px;
-  margin: 12px var(--gutter) 24px;
+  margin: 12px auto 24px;
   max-width: calc(var(--content-wide) - (var(--gutter) * 2));
 }
 .now-head {
