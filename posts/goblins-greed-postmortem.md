@@ -18,11 +18,11 @@ The reason I shelved Goblin's Greed isn't that one. It's quieter and a little mo
 
 ## What I built
 
-Goblin's Greed was a four-player co-op dungeon crawler. You and three friends ran procedurally-generated dungeons, fought goblins and avoided traps, and tried not to lose all your loot to a thieving merchant at the end of every floor. Six months of work, October 2025 through March 2026.
+Goblin's Greed was a four-player co-op dungeon crawler. You and three friends ran procedurally-generated dungeons, fought various enemies and avoided traps, and tried not to lose all your loot before returning to the goblin chief. Six months of work, October 2025 through March 2026.
 
 The systems were the most ambitious thing I'd ever shipped solo. GAS-driven combat with custom ability tasks. Server-authoritative replication that actually felt good on a network. Procedural rooms that retried generation when a layout dead-ended, all from the Game Instance, invisibly. Trap chains, shop transactions, ragdoll deaths — the whole tour.
 
-It worked. Not perfectly, but it worked. I had something I could put in front of friends and watch them play.
+It worked. Not perfectly, but it worked.
 
 ## What I should have done first
 
@@ -38,7 +38,7 @@ You can argue about Steam tags as a signal — they're noisy, they're gameable, 
 
 I tried to talk myself out of it for about three weeks. The arguments were the usual ones.
 
-I was already this far in. I'd be wasting six months. If I just polished the differentiator harder. If I marketed cleverly. If I leaned into the goblin merchant being the actual hook. If I priced low. If I did Early Access. If I, if I, if I.
+I was already this far in. I'd be wasting six months. If I just polished the differentiator harder. If I marketed cleverly. If I leaned into the goblins being the actual hook. If I priced low. If I did Early Access. If I, if I, if I.
 
 The thing about sunk cost is that it'll keep arguing with you for as long as you let it. The thing that finally settled it was a question I asked myself in front of the spreadsheet: if I were starting today, knowing what I know now, would I start *this* project?
 
@@ -68,6 +68,6 @@ The systems work I'm doing on it is genuinely some of the best I've ever written
 
 ## A small acknowledgment
 
-To the friends who playtested Goblin's Greed: thank you. Sincerely. The hours you put into pre-alpha builds taught me more about pacing and game-feel than any book has. None of that work is wasted, even if the project is.
+To the friends made during Goblin's Greed development: thank you. Sincerely. The constant support made very day worth it. None of that work is wasted, even if the project is.
 
 The dungeon stays on the shelf. The lessons come with me.
