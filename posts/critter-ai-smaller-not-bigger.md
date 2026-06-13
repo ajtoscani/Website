@@ -89,17 +89,6 @@ Drop the condition inline into the relevant `CritterData`'s `VisitConditions` or
 
 The split between `VisitConditions` and `ResidentConditions` is one of the smaller wins from this refactor — *will this critter consider visiting at all* and *will this critter stay long-term* are different questions with different answers, and treating them as the same question made the original logic worse than it needed to be.
 
-## What got cut
-
-The cut list is the more interesting half:
-
-- A `UCritterBrain` class meant to coordinate decisions across critters. Removed. Critters don't need to coordinate; they evaluate the world independently and the GardenGrid handles anything cross-cutting.
-- An "intent" enum each critter carried as a current goal. The State Tree turned out to model this perfectly without an extra enum, and the enum was wrong half the time anyway.
-- Three different kinds of debug logger. Folded into one.
-- A single unified `CritterBehavior` data asset that was trying to hold both garden and combat behavior. Splitting it into `CritterData` and `CritterCombatData` meant each one became easy to reason about — and I stopped accidentally referencing combat-only fields from garden code, which had been a quiet source of bugs.
-
-Most of good architecture in practice looks like this — not adding the right things, but removing the wrong ones.
-
 ## The smaller lesson
 
 I keep finding that good gameplay code has the shape of *small pieces with narrow surfaces*. When something feels hard to add, it's almost always because two pieces are talking to each other when they shouldn't be. Cut the conversation, and the new thing slots in clean.
