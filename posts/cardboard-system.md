@@ -31,7 +31,7 @@ What's running in the engine right now is a Master Material that composites thre
 
 Per-instance Custom Primitive Data drives a single `Wear` scalar from 0 to 1. The material composites the layers based on that value, weighted by a fragmentation mask that makes failure look local rather than uniform — the surface gives way at edges and seams first, then spreads.
 
-<figure class="scrub-demo" id="wear-demo">
+<figure class="scrub-demo" data-usable-end="0.87">
   <div class="scrub-demo-stage">
     <video class="scrub-demo-video"
            src="/assets/videos/posts/cardboard-wear-progression.mp4"
@@ -47,28 +47,6 @@ Per-instance Custom Primitive Data drives a single `Wear` scalar from 0 to 1. Th
   </div>
   <figcaption>Drag the slider to scrub the wear scalar from fresh to fully worn.</figcaption>
 </figure>
-
-<script>
-(function() {
-  const fig = document.getElementById('wear-demo');
-  if (!fig) return;
-  const video = fig.querySelector('.scrub-demo-video');
-  const slider = fig.querySelector('.scrub-demo-slider');
-  const readout = fig.querySelector('.scrub-demo-value');
-
-  function update() {
-    const t = slider.value / slider.max;
-    if (video.duration && isFinite(video.duration)) {
-      video.currentTime = t * video.duration;
-    }
-    const usableEnd = 0.82;
-	video.currentTime = t * video.duration * usableEnd;
-  }
-
-  slider.addEventListener('input', update);
-  video.addEventListener('loadedmetadata', update);
-})();
-</script>
 
 
 ## What's not in yet

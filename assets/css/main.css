@@ -1371,6 +1371,18 @@ em { font-style: italic; }
   font-family: var(--font-serif);
 }
 
+.cs-visual .scrub-demo {
+  margin: 0;
+}
+.cs-visual .scrub-demo-stage {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+.cs-visual .scrub-demo-controls {
+  padding: 12px 0 0;
+}
+
 /* === Contact page ================================================= */
 .ct-email-block {
   padding: 28px var(--gutter) 36px;
