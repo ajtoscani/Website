@@ -61,7 +61,8 @@ Per-instance Custom Primitive Data drives a single `Wear` scalar from 0 to 1. Th
     if (video.duration && isFinite(video.duration)) {
       video.currentTime = t * video.duration;
     }
-    readout.textContent = Math.round(t * 100);
+    const usableEnd = 0.82;
+	video.currentTime = t * video.duration * usableEnd;
   }
 
   slider.addEventListener('input', update);
