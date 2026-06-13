@@ -1,9 +1,8 @@
 ---
 title: "Why I shelved Goblin's Greed."
-date: 2026-04-09
+date: 2026-03-31
 project: gg
 type: devlog
-read_time: 9
 published: true
 dek: "Six months of solo development on a co-op dungeon crawler — and the Steam tag data that finally talked me out of finishing it."
 tags:
@@ -20,7 +19,7 @@ The reason I shelved Goblin's Greed isn't that one. It's quieter and a little mo
 
 Goblin's Greed was a four-player co-op dungeon crawler. You and three friends ran procedurally-generated dungeons, fought various enemies and avoided traps, and tried not to lose all your loot before returning to the goblin chief. Six months of work, October 2025 through March 2026.
 
-The systems were the most ambitious thing I'd ever shipped solo. GAS-driven combat with custom ability tasks. Server-authoritative replication that actually felt good on a network. Procedural rooms that retried generation when a layout dead-ended, all from the Game Instance, invisibly. Trap chains, shop transactions, ragdoll deaths — the whole tour.
+The systems were the most ambitious thing I'd created. GAS-driven combat with custom ability tasks. Server-authoritative replication that actually felt good on a network. Procedural rooms that retried generation when a layout dead-ended, all from the Game Instance, invisibly. Trap chains, shop transactions, ragdoll deaths — the whole tour.
 
 It worked. Not perfectly, but it worked.
 
@@ -68,6 +67,6 @@ The systems work I'm doing on it is genuinely some of the best I've ever written
 
 ## A small acknowledgment
 
-To the friends made during Goblin's Greed development: thank you. Sincerely. The constant support made very day worth it. None of that work is wasted, even if the project is.
+To the friends made during Goblin's Greed development: thank you. Sincerely. The constant support made every day worth it. None of that work is wasted, even if the project is.
 
 The dungeon stays on the shelf. The lessons come with me.
