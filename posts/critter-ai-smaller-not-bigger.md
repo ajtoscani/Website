@@ -11,10 +11,6 @@ tags:
   - data-assets
 ---
 
-The first version of the critter AI in Cardboard Critters was a class. Just one. It had references to the GardenGrid, the spawn points, its own definition asset, a State Tree, condition objects, and a debug logger nobody asked for. Adding a one-line behavior — say, *"prefer flowers over crops on rainy days"* — meant editing four files and three structs.
-
-This is the version I'm running now, after a small architectural fight with myself.
-
 ## The pieces
 
 The current critter system is a small hierarchy of data assets and one predicate type, all of which know as little as possible about each other.
@@ -27,10 +23,6 @@ The current critter system is a small hierarchy of data assets and one predicate
 **`UGardenCondition`** is an abstract `UObject` with two `BlueprintNativeEvent` methods: `Evaluate(garden, critter)` and `FindTarget(garden, critter)`. Each concrete condition is its own subclass, marked `EditInlineNew` so it can be authored inline inside whichever `CritterData` references it — no separate asset file required per condition. Conditions don't know about each other; they just answer questions about a garden.
 
 The Critter actor itself does what pawns do — moves, animates, looks at things. It reads from its `CritterData` and lets the State Tree make decisions. The actor is small.
-
-> If a one-line behavior costs five files to add, the architecture is wrong.
-
-That's the test I keep coming back to. Five files for one rule means the rule is too entangled with everything else. The point of the split above isn't that more files are better — it's that adding a new behavior should land in one place.
 
 ## What this looked like before
 
@@ -75,13 +67,13 @@ public:
 
 A condition is one type, two functions, two arguments. It doesn't know what a state tree is. It doesn't know what a behavior config is. It evaluates a question against a garden and (optionally) a critter, and returns yes/no or a target.
 
-Adding the *"prefer flowers over crops on rainy days"* rule, in the new system, is a single condition subclass. The implementation is one line:
+Adding the *"wants X amount of Soil"* rule, in the new system, is a single condition subclass. The implementation is one line:
 
 ```cpp
-bool UCondition_PreferFlowersWhenWet::Evaluate_Implementation(
-    AGardenGrid* Garden, ACritter* Critter) const
+bool UGardenCondition_TileCount::Evaluate_Implementation(AGardenGrid* Garden,  ACritter* Critter) const
 {
-    return Garden->IsRaining() && Garden->HasAvailableFlowers();
+	if (!Garden ) return false;
+	return Garden->GetCoverageCount(RequiredTileType) >= RequiredCount;
 }
 ```
 
