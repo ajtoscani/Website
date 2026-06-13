@@ -181,7 +181,7 @@ eleventyExcludeFromCollections: true
 
 <hr class="rule"/>
 
-{% set recentPosts = collections.posts | reverse | limit(3) %}
+{% set recentPosts = collections.posts | limit(3) %}
 {% if recentPosts.length %}
 <section class="section">
   <div class="selected-head">
@@ -209,7 +209,6 @@ eleventyExcludeFromCollections: true
     <h2>A few things<br><em>about me</em>—</h2>
     <div>
       <p>I'm a solo developer working primarily in Unreal Engine 5. I lean toward systems that are clean to read, fun to extend, and weird around the edges — and toward cutting things instead of bolting more on.</p>
-      <p>Off-hours: tutorial videos, certification chases, and far too much time in Substance.</p>
       <a class="more" href="/about/">More about me →</a>
     </div>
   </div>
